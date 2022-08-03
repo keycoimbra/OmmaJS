@@ -9,16 +9,13 @@ const listaDeReceitas = [ // isso é uma lista
    preparo: "Assar", //e
    link: 'vimeo.com', //f
    vegano: false
-} // isso é um objeto é uma receita 
+
+ } // isso é um objeto é uma receita 
 ];
-/*4. Será preciso criar uma função que permita cadastrar uma receita dentro
-da lista de receitas, seguindo os padrões do objeto estipulado na etapa
-anterior. A função deve se chamar cadastrarReceita e deverá receber
-cada informação da receita por parâmetro devolver um feedback no
-console que o cadastro foi concluído.*/
 const cadastrarReceita = (
    id, titulo, dificuldade,ingredientes,preparo,link, vegano
-​) => {
+
+) => {
   const novaReceita = {
     id, 
     titulo,
@@ -35,9 +32,44 @@ cadastrarReceita(
     2, 
     "Panqueca",
     "simples", 
-    ['Blá','Blá','Blá','Blá','Blá' ], 
+    ['Ovo', 'Leite', 'Farinha' ], 
     "Fritar", 
     'youtube.com', 
-    false
+    true
 );
+
 console.log(listaDeReceitas)
+function exibirReceitas() {
+  for (let i=0; i<listaDeReceitas.length; i++){
+    const receita = listaDeReceitas [i];
+    console.log("------------------------------");
+    console.log("Titulo:" +receita.titulo);
+  } //a 
+  for (let i=0; i<listaDeReceitas.length; i++){
+    const receita = listaDeReceitas [i];
+    console.log("------------------------------");
+    console.log("Ingredientes:" +receita.ingredientes);
+  } //b
+  for (let i=0; i<listaDeReceitas.length; i++){
+    const receita = listaDeReceitas [i];
+    console.log("------------------------------");
+    console.log("Vegano sim ou não:" +receita.vegano);
+  } //b
+
+}
+exibirReceitas();
+const deletarReceita = (id) =>{
+  for(let i=0; i< listaDeReceitas.length;i ++){
+   if(listaDeReceitas[i].id=== id){
+    listaDeReceitas.splice(i,1);
+    console.log("Receita deletada");
+    console.log(listaDeReceitas)
+
+   }
+  else{
+    console.log("Receita não encontrada");
+  }
+    
+  }
+}
+deletarReceita(1);
